@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../CSS/login_page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid vh-100">
+        <div class="row h-100">
+            <div class="col-lg-5 col-md-6 d-flex flex-column justify-content-center p-5" style="background-color: lightblue;">
+                <header>
+                    <h1 class="mb-3">Welcome Back!</h1>
+                    <p class="mb-4">Log in to explore, save, and share your favorite images.</p>
+                </header>
+
+                <main>
+                    <section class="mb-3">
+                        <a href="/auth/google" class="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center gap-2">
+                            <img src="../ASSETS/IMAGE/google.svg" alt="Google Logo" style="width:24px; height:24px;">
+                            Login with Google
+                        </a>
+                    </section>
+
+                    <div class="text-center mb-3">or</div>
+                    
+                    <div id="loginAlert" class="alert alert-danger d-none" role="alert"></div>
+
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
+                        </div>
+                        <div class="mb-3 position-relative">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
+                             <span id="togglePassword" class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor: pointer;">
+                                <i class="fa-regular fa-eye-slash"></i>
+                            </span>
+                        </div>
+                        <div class="mb-3 text-end">
+                            <a href="/forgot-password" class="link-primary">forgot password?</a>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <span>Don't have an account?</span>
+                            <a href="register_page.html" class="link-primary">Register here</a>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+            <div class="col-lg-7 col-md-6 d-none d-md-flex align-items-center justify-content-center p-0" style="overflow: hidden; margin: 0;">
+                <div class="cinematic" aria-hidden="false" tabindex="-1">
+                    <!-- images will be in DOM so they can be preloaded; order = crossfade order -->
+                    <img src="../ASSETS/IMAGE/Login_img5.jpg" class="slide" alt="Artwork 1">
+                    <img src="../ASSETS/IMAGE/Login_img2.jpg" class="slide" alt="Artwork 2">
+                    <img src="../ASSETS/IMAGE/Login_img3.jpg" class="slide" alt="Artwork 3">
+                    <!-- optional subtle top gradient for cinematic look -->
+                    <div class="cinematic-gradient" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JAVA_SCRIPT/login_page.js"></script>
+</body>
+</html>

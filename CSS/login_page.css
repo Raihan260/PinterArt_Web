@@ -1,0 +1,106 @@
+/* gambar besar: fill area kanan penuh */
+.large-image {
+    display: block;       /* menghilangkan whitespace di bawah inline images */
+    width: 100%;          /* isi lebar parent (kolom) */
+    height: 100%;         /* isi tinggi parent (row yang h-100 => viewport) */
+    object-fit: cover;    /* isi area, crop jika aspect berbeda */
+    object-position: center center; /* posisikan tengah saat crop */
+}
+
+main {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+header h1{
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'monserrat', sans-serif;
+}
+
+header p{
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'monserrat', sans-serif;
+}
+
+/* Ubah paksa tampilan forgot password */
+a.link-primary[href="/forgot-password"] {
+    text-decoration: none !important; /* Hilangkan garis bawah */
+    color: #000 !important; /* Ubah warna jadi hitam */
+}
+
+/* Ubah paksa tampilan tombol registrasi */
+a.link-primary[href="register_page.html"] {
+    color: #D7263D !important;      /* Ubah warna jadi merah */
+    text-decoration: none !important; /* Hilangkan garis bawah */
+}
+
+/* Alert login mirip bawaan HTML (simple, tanpa dekorasi) */
+#loginAlert {
+    background: #fff;
+    color: #d7263d;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: normal;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    text-align: left;
+    box-shadow: none;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cinematic cross-fade container */
+.cinematic {
+    position: relative;
+    width: 100%;
+    height: 100vh;              /* isi tinggi kolom kanan */
+    overflow: hidden;
+    background: #000;           /* fallback */
+    display: block;
+}
+
+/* each slide covers area and is stacked */
+.cinematic .slide {
+    position: absolute;
+    inset: 0;                   /* top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* crop untuk efek sinematik */
+    object-position: center center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    will-change: opacity, transform;
+    transform: scale(1.02);     /* slight zoom for cinematic feel */
+}
+
+/* visible slide */
+.cinematic .slide.active {
+    opacity: 1;
+    transform: scale(1);       /* settle scale on active */
+}
+
+/* subtle gradient overlay to add depth */
+.cinematic .cinematic-gradient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 75%, rgba(0,0,0,0.25) 100%);
+    mix-blend-mode: overlay;
+}
+
+/* optional: pause animation hint when hovered (we'll handle pause in JS) */
+.cinematic:hover .slide { transition-duration: 0.9s; }
+
+/* responsive: ensure height uses parent on smaller screens */
+@media (max-width: 992px) {
+    .cinematic { height: 60vh; }
+}
